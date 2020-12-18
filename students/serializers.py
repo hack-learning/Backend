@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from students.models import studen, technologi, project, courses, week
+from students.models import studen, technologi, project, courses, milestone
 
 
 class studenSerializer(serializers.ModelSerializer):
@@ -20,10 +20,10 @@ class projectSerializer(serializers.ModelSerializer):
         model = project
         fields = '__all__'
 
-class weekSerializer(serializers.ModelSerializer):
+class milestoneSerializer(serializers.ModelSerializer):
 
     class Meta:
-        model = week
+        model = milestone
         fields = '__all__'
 
 class coursesSerializer(serializers.ModelSerializer):

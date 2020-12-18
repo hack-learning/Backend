@@ -23,9 +23,9 @@ urlpatterns = [
         name= 'projects_list'
     ),
         path(
-        route='api/week-list/',
-        view= views.weekList,
-        name= 'week_list'
+        route='api/milestons-list/',
+        view= views.milestonsList,
+        name= 'milestons_list'
     ),
 
         path(
@@ -51,9 +51,9 @@ urlpatterns = [
         name= 'projectList-detail'
     ),
         path(
-        route='api/week-detail/<str:pk>/',
-        view=views.weekDetail,
-        name= 'week-detail'
+        route='api/milestons-detail/<str:pk>/',
+        view=views.milestonsDetail,
+        name= 'milestons-detail'
     ),
         path(
         route='api/courses-detail/<str:pk>/',
@@ -78,9 +78,9 @@ urlpatterns = [
         name= 'projectList-create'
     ),
         path(
-        route='api/week-create/',
-        view=views.weekCreate,
-        name= 'week-create'
+        route='api/milestons-create/',
+        view=views.milestonsCreate,
+        name= 'milestons-create'
     ),
         path(
         route='api/courses-create/',
@@ -105,9 +105,9 @@ urlpatterns = [
         name= 'projectList-update'
     ),
         path(
-        route='api/week-update/<str:pk>/',
-        view=views.weekUpdate,
-        name= 'week-update'
+        route='api/milestons-update/<str:pk>/',
+        view=views.milestonsUpdate,
+        name= 'milestons-update'
     ),
         path(
         route='api/courses-update/<str:pk>/',
@@ -129,12 +129,12 @@ urlpatterns = [
         path(
         route='api/projectList-delete/<str:pk>/',
         view=views.projeDelete,
-        name= 'projectList-delete'
+        name= 'projectList-delete',
     ),
         path(
-        route='api/week-delete/<str:pk>/',
-        view=views.weekDelete,
-        name= 'week-delete'
+        route='api/milestons-delete/<str:pk>/',
+        view=views.milestonsDelete,
+        name= 'milestons-delete'
     ),
         path(
         route='api/courses-delete/<str:pk>/',

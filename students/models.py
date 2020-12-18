@@ -23,7 +23,7 @@ class studen(models.Model):
 
 class technologi(models.Model):
     studen_id = models.ForeignKey(studen, on_delete=models.CASCADE)
-    name = models.CharField(max_length=80)
+    name = models.CharField(max_length=100)
     badge = models.URLField()
 
 
@@ -53,8 +53,10 @@ class project(models.Model):
 
 
 class courses(models.Model):
-    milestone = models.CharField(max_length=40)
-    name = models.CharField(max_length=80)
+    name = models.CharField(max_length=300)
+    ur_local = models.URLField(max_length=500)
+    time = models.IntegerField()
+    week = models.CharField(max_length=80)
 
     def __str__(self):
         return self.name
@@ -64,14 +66,15 @@ class courses(models.Model):
         verbose_name_plural = 'courses'
         ordering = ['id']
 
-class week(models.Model):
-    courses_id = models.ForeignKey(courses, on_delete=models.CASCADE)
-    milestone = models.CharField(max_length=200)
+class milestone(models.Model):
+    name = models.CharField(max_length=200)
+    description = models.CharField(max_length=600)
+
 
     def __str__(self):
         return self.milestone
 
     class Meta:
-        verbose_name = 'week'
-        verbose_name_plural = 'weeks'
+        verbose_name = 'name'
+        verbose_name_plural = 'names'
         ordering = ['id']

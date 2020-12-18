@@ -1,13 +1,13 @@
 from django.shortcuts import render
 from django.http import JsonResponse
-from students.models import studen, technologi, project, courses, week
+from students.models import studen, technologi, project, courses, milestone
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
 
 #  create your views here.
-from .models import studen, technologi, project, courses, week
-from students.serializers import studenSerializer, technologiSerializer, projectSerializer, coursesSerializer, weekSerializer
+from .models import studen, technologi, project, courses, milestone
+from students.serializers import studenSerializer, technologiSerializer, projectSerializer, coursesSerializer, milestoneSerializer
 
 # list all 
 @api_view(['GET'])
@@ -29,9 +29,9 @@ def projeList(request):
     return Response(serializer.data)
 
 @api_view(['GET'])
-def weekList(request):
-    week1 = week.objects.all()
-    serializer = weekSerializer(week1, many=True)
+def milestonsList(request):
+    milesto = milestons.objects.all()
+    serializer = milestonSerializer(milesto, many=True)
     return Response(serializer.data)
 
 @api_view(['GET'])
@@ -61,9 +61,9 @@ def projetDetail(request, pk):
     return Response(serializer.data)
 
 @api_view(['GET'])
-def weekDetail(request, pk):
-    week1 = week.objects.get(id=pk)
-    serializer = weekSerializer(week1, many=False)
+def milestonsDetail(request, pk):
+    milesto = milestons.objects.get(id=pk)
+    serializer = milestonsSerializer(milesto, many=False)
     return Response(serializer.data)
 
 @api_view(['GET'])
@@ -97,8 +97,8 @@ def projeListCreate(request):
     return Response(serializer.data)
 
 @api_view(['POST'])
-def weekCreate(request):
-    serializer = weekSerializer(data=request.data)
+def milestonsCreate(request):
+    serializer = milestonsSerializer(data=request.data)
     if serializer.is_valid():
         serializer.save()
     return Response(serializer.data)
@@ -144,9 +144,9 @@ def projeUpdate(request, pk):
     return Response(serializer.data)
 
 @api_view(['POST'])
-def weekUpdate(request, pk):
-    week1 = week.objects.get(id=pk)
-    serializer = coursesSerializer(instance=course, data=request.data)
+def milestonsUpdate(request, pk):
+    milesto = milestons.objects.get(id=pk)
+    serializer = milestonSerializer(instance=course, data=request.data)
     if serializer.is_valid():
         serializer.save()
     return Response(serializer.data)
@@ -182,11 +182,11 @@ def projeDelete(request, pk):
     return Response('projects succsesfully delete!')
 
 @api_view(['DELETE'])
-def weekDelete(request, pk):
-    week1 = week.objects.get(id=pk)
-    week1.delete()
+def milestonsDelete(request, pk):
+    milesto = milestons.objects.get(id=pk)
+    milesto.delete()
 
-    return Response('week succsesfully delete!')
+    return Response('milestons succsesfully delete!')
 
 @api_view(['DELETE'])
 def coursDelete(request, pk):
