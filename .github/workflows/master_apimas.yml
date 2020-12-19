@@ -31,4 +31,4 @@ jobs:
       with:
         app-name: 'apimas'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_7696ddea3137445f880378233f5b9854 }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_45312fd2a6dd4d4282cea3ff9249ef36 }}
